@@ -1,0 +1,16 @@
+<button onclick="ejecutar()">SEND</button>
+<script src="socket.io/socket.io.js"></script>
+<script>
+    let socket = io();
+
+    socket.on('send', (mensaje) => {
+        console.log(mensaje);
+    });
+
+    let ejecutar = () => {
+        socket.emit('send', {
+            usuario: 'Mario Styven',
+            mensaje: 'Hola Mundo'
+        });
+    }
+</script>
